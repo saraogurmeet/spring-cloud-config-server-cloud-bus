@@ -1,12 +1,27 @@
 server:
   port: 8888
 spring:
-  application:    name: config-client
-  cloud:    config:      enabled: true
-      server:        git:          clone-on-start: true
+  application:
+    name: config-client
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          clone-on-start: true
           uri: https://github.com/saraogurmeet/public-github-test-repo
-          basedir: target/configs                  label: develop
+          basedir: target/configs            
+      label: develop
   security:
     user:
       name: root
       password:  s3cr3t
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    
+logging:
+  pattern:
+    level: debug
